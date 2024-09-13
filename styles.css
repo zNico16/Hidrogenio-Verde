@@ -1,0 +1,193 @@
+/* Estilos Globais */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-image: url('img/hv.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 13rem 1rem;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+main {
+  padding: 2rem;
+}
+
+/* Container dos Círculos e Barras */
+.circles-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha quando necessário */
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+/* Círculo */
+.circle {
+  width: 40px; /* Tamanho dos círculos */
+  height: 40px; /* Tamanho dos círculos */
+  background-color: white;
+  color: #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem; /* Tamanho da fonte */
+  cursor: pointer;
+  border: 2px solid #4CAF50;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.circle.green {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Barra de Progresso */
+.progress-bar {
+  flex: 1;
+  height: 8px; /* Altura da barra de progresso */
+  background-color: white;
+  border: 2px solid #4CAF50;
+  margin: 0 0.05rem; /* Espaçamento reduzido entre a barra e os círculos */
+  transition: background-color 0.3s;
+}
+
+/* Tooltip */
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 50px; /* Ajuste conforme necessário */
+  left: 160%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+#tooltip-6 {
+  left: -240%;
+}
+
+.tooltip-container:hover .tooltip {
+  display: block;
+}
+
+/* Caixa de Informações */
+.info-box {
+  display: none;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  margin-top: 1rem;
+}
+
+.info-content {
+  display: flex;
+  align-items: center;
+}
+
+.info-text {
+  flex: 1;
+}
+
+.info-image {
+  width: 320px; /* Tamanho da imagem */
+  height: auto;
+  margin-left: 1rem;
+}
+
+footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Consultas de Mídia */
+@media (max-width: 768px) {
+  .circles-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .circle {
+    width: 30px; /* Ajusta o tamanho dos círculos para telas menores */
+    height: 30px; /* Ajusta o tamanho dos círculos para telas menores */
+    font-size: 0.8rem; /* Ajusta o tamanho da fonte para telas menores */
+  }
+
+  .progress-bar {
+    height: 6px; /* Ajusta a altura da barra de progresso para telas menores */
+    margin: 0 0.25rem; /* Ajusta o espaçamento horizontal entre a barra e os círculos */
+  }
+}
+
+/* Estilo específico para telas menores que 390px */
+@media (max-width: 390px) {
+  .circle {
+    width: 30px; /* Ajusta o tamanho dos círculos para telas muito pequenas */
+    height: 30px; /* Ajusta o tamanho dos círculos para telas muito pequenas */
+    font-size: 0.8rem; /* Ajusta o tamanho da fonte para telas muito pequenas */
+  }
+
+  .progress-bar {
+    height: 6px; /* Ajusta a altura da barra de progresso para telas muito pequenas */
+    margin: 0 0.25rem; /* Ajusta o espaçamento horizontal entre a barra e os círculos */
+  }
+
+  .circles-container {
+    flex-wrap: wrap; /* Permite que os itens se movam para baixo em telas pequenas */
+    justify-content: center; /* Centraliza o conteúdo dentro do container */
+  }
+
+  /* Move o círculo 6 para baixo, caso o espaço não seja suficiente */
+  .circle:nth-of-type(6) {
+    order: 1; /* Move o círculo 6 para o final do container */
+    margin-top: 1rem; /* Adiciona espaço acima do círculo 6 */
+  }
+
+  /* Ajusta a ordem dos círculos conforme necessário */
+  .circle:nth-of-type(4) {
+    order: 2;
+  }
+
+  .circle:nth-of-type(5) {
+    order: 3;
+  }
+
+  /* Remove margens para as barras para evitar excesso de espaço */
+  .progress-bar:nth-of-type(2),
+  .progress-bar:nth-of-type(3),
+  .progress-bar:nth-of-type(4),
+  .progress-bar:nth-of-type(5) {
+    margin: 0;
+  }
+}
